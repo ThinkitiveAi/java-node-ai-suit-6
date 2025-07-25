@@ -1,0 +1,32 @@
+spring:
+  application:
+  name: health-first-server
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:9999/aipro}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME:myuser}
+    password: ${DB_PASSWORD:mypassword}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8765
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+
+#jwt:
+#  secret: mySuperSecretKeyForJWT
+#  expiration: 3600000 # 1 hour in ms
