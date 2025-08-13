@@ -1,11 +1,11 @@
 spring:
   application:
-  name: health-first-server
+    name: health-first-server
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:9999/aipro}
-    driver-class-name: org.postgresql.Driver
-    username: ${DB_USERNAME:myuser}
-    password: ${DB_PASSWORD:mypassword}
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,9 +13,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
   h2:
     console:
-      enabled: false
+      enabled: true
+      path: /h2-console
 
 server:
   port: 8765
