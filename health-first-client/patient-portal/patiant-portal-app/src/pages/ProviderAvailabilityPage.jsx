@@ -57,7 +57,7 @@ export default function ProviderAvailabilityPage() {
   const [blocks, setBlocks] = useState([{ date: '', from: '', till: '' }]);
 
   return (
-    <div className="min-h-screen bg-[#F3F3F3]">
+    <div className="min-h-screen bg-primary-50">
       <Navbar active="Settings" />
       <div className="mx-auto mt-4 grid w-[1408px] max-w-full grid-cols-1 gap-8 rounded bg-white p-4 shadow" style={{ boxShadow: '1px 1px 8px rgba(0,0,0,0.25)' }}>
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">

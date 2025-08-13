@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import PatientLogin from './components/PatientLogin';
+import PatientRegistration from './components/PatientRegistration';
 import ProviderLogin from './components/ProviderLogin';
 import SmookyCursor from './components/SmookyCursor';
 import LoginToggle from './components/LoginToggle';
-import { ProviderSelectPage, AppointmentListPage } from './pages';
+import { ProviderSelectPage, AppointmentListPage, ProviderAvailabilityPage } from './pages';
 import ProviderDashboard from './components/ProviderAvailability/ProviderDashboard';
 
 function PatientLoginRoute() {
   const navigate = useNavigate();
   return (
-    <PatientLogin onSuccess={() => navigate('/appointments')} onShowRegistration={() => navigate('/appointments')} onForgotPassword={() => {}} onNeedHelp={() => {}} />
+    <PatientLogin 
+      onSuccess={() => navigate('/appointments')} 
+      onShowRegistration={() => navigate('/patient/register')} 
+      onForgotPassword={() => {}} 
+      onNeedHelp={() => {}} 
+    />
+  );
+}
+
+function PatientRegistrationRoute() {
+  const navigate = useNavigate();
+  return (
+    <PatientRegistration onBack={() => navigate('/')} />
   );
 }
 
@@ -27,7 +40,7 @@ function AppRoutes() {
 
   return (
     <div className="App">
-      <SmookyCursor />
+      {/* <SmookyCursor /> */}
       <Routes>
         <Route
           path="/"
@@ -38,8 +51,10 @@ function AppRoutes() {
             </div>
           }
         />
+        <Route path="/patient/register" element={<PatientRegistrationRoute />} />
         <Route path="/provider/select" element={<ProviderSelectPage />} />
-        <Route path="/provider/availability" element={<ProviderDashboard />} />
+        <Route path="/provider/availability" element={<ProviderAvailabilityPage />} />
+        <Route path="/provider/dashboard" element={<ProviderDashboard />} />
         <Route path="/appointments" element={<AppointmentListPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

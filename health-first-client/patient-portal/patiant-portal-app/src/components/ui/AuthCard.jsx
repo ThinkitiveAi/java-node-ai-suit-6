@@ -17,12 +17,12 @@ const AuthCard = ({ children, title, subtitle, icon = 'shield' }) => {
     <div className="min-h-screen flex items-center justify-center p-4 relative">
       {/* Particles Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-healthcare-50/50 via-primary-50/50 to-healthcare-100/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-healthcare-50 to-primary-200"></div>
         <div className="absolute top-0 left-0 w-full h-full">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-primary-300/30 rounded-full animate-pulse-slow"
+              className="absolute w-2 h-2 bg-primary-400/40 rounded-full animate-pulse-slow"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,

@@ -109,7 +109,7 @@ const AvailabilityCalendar = ({ view, slots, onSlotClick, onChange, selectedKeys
 
   return (
     <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden select-none" onMouseLeave={handleMouseUp}>
-      <div className="bg-[#0ea5e9] text-white p-4">
+      <div className="bg-primary-500 text-white p-4">
         <div className="flex items-center justify-between">
           <motion.button
             whileHover={{ scale: 1.05 }}

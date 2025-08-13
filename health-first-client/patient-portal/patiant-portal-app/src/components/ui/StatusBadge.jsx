@@ -1,10 +1,10 @@
 import React from 'react';
 
 const styles = {
-  scheduled: 'bg-[#F6F8FB] text-[#5980BF] ring-1 ring-[#5980BF]',
-  'checked-in': 'bg-[#FEFAFF] text-[#E8A6FF] ring-1 ring-[#E8A6FF]',
-  'in-exam': 'bg-[#F7F6FF] text-[#6B58FF] ring-1 ring-[#6B58FF]',
-  cancelled: 'bg-[#FEF2F2] text-[#EC2020] ring-1 ring-[#EC2020]',
+  scheduled: 'bg-blue-50 text-blue-600 ring-1 ring-blue-600',
+  'checked-in': 'bg-purple-50 text-purple-600 ring-1 ring-purple-600',
+  'in-exam': 'bg-indigo-50 text-indigo-600 ring-1 ring-indigo-600',
+  cancelled: 'bg-red-100 text-red-600 ring-1 ring-red-600',
 };
 
 export default function StatusBadge({ status = 'scheduled', children }) {

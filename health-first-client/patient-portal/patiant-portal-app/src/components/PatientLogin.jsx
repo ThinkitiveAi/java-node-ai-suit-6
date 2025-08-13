@@ -1,48 +1,53 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { LogIn, ArrowRight, HelpCircle, Lock, AlertCircle } from 'lucide-react';
-import AuthCard from './ui/AuthCard';
-import EmailInput from './ui/EmailInput';
-import PasswordInput from './ui/PasswordInput';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { LogIn, ArrowRight, HelpCircle, Lock, AlertCircle } from "lucide-react";
+import AuthCard from "./ui/AuthCard";
+import EmailInput from "./ui/EmailInput";
+import PasswordInput from "./ui/PasswordInput";
 
-const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSuccess }) => {
+const PatientLogin = ({
+  onShowRegistration,
+  onForgotPassword,
+  onNeedHelp,
+  onSuccess,
+}) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const emailValidationRules = {
     required: true,
-    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    setError(''); // Clear error when user starts typing
+    setError(""); // Clear error when user starts typing
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
+    setError("");
 
     // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, 800));
       // Mock validation
       if (!formData.email || !formData.password) {
-        throw new Error('Please fill in all fields');
+        throw new Error("Please fill in all fields");
       }
       // Mock successful login
       onSuccess?.();
     } catch (err) {
-      setError(err.message || 'Login failed. Please try again.');
+      setError(err.message || "Login failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -50,28 +55,28 @@ const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSucc
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <AuthCard 
-      title="Patient Portal Login" 
+    <AuthCard
+      title="Patient Portal Login"
       subtitle="Access your healthcare information securely"
       icon="heart"
     >
-      <motion.form 
+      <motion.form
         onSubmit={handleSubmit}
         variants={containerVariants}
         initial="hidden"
@@ -101,9 +106,9 @@ const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSucc
         </motion.div>
 
         {error && (
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            className="p-3 bg-red-50 border border-red-200 rounded-lg"
+            className="p-3 bg-red-50 border border-red-300 rounded-lg"
           >
             <div className="flex items-center text-red-600 text-sm">
               <AlertCircle className="w-4 h-4 mr-2" />
@@ -141,7 +146,7 @@ const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSucc
               <HelpCircle className="w-4 h-4" />
               <span>Need Help?</span>
             </button>
-            
+
             <button
               type="button"
               onClick={onForgotPassword}
@@ -153,9 +158,12 @@ const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSucc
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="pt-4 border-t border-gray-200">
+        <motion.div
+          variants={itemVariants}
+          className="pt-4 border-t border-gray-200"
+        >
           <p className="text-center text-sm text-gray-600">
-            New to our patient portal?{' '}
+            New to our patient portal?{" "}
             <button
               type="button"
               onClick={onShowRegistration}
@@ -170,4 +178,4 @@ const PatientLogin = ({ onShowRegistration, onForgotPassword, onNeedHelp, onSucc
   );
 };
 
-export default PatientLogin; 
+export default PatientLogin;

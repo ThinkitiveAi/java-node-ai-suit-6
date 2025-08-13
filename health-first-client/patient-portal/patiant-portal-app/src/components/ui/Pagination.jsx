@@ -17,7 +17,7 @@ export default function Pagination({
         <Button variant="outline" size="sm" onClick={onPrev}>Previous</Button>
         <div className="flex items-center gap-1">
           {[1,2,3,4,5].map((n) => (
-            <div key={n} className={`grid h-6 w-6 place-items-center rounded ${n===page ? 'bg-[#233853] text-white' : 'text-gray-700'}`}>{String(n).padStart(2,'0')}</div>
+            <div key={n} className={`grid h-6 w-6 place-items-center rounded ${n===page ? 'bg-primary-700 text-white' : 'text-gray-700'}`}>{String(n).padStart(2,'0')}</div>
           ))}
         </div>
         <Button variant="outline" size="sm" onClick={onNext}>Next</Button>

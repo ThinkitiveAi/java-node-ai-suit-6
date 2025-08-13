@@ -4,7 +4,7 @@ const menuItems = ['Dashboard', 'Scheduling', 'Patients', 'Communications', 'Bil
 
 export default function Navbar({ active = 'Scheduling' }) {
   return (
-    <nav className="sticky top-0 z-40 w-full bg-[#233853] text-white">
+    <nav className="sticky top-0 z-40 w-full bg-primary-700 text-white">
       <div className="mx-auto flex h-10 w-full max-w-screen-2xl items-center gap-3 px-4">
         <div className="flex items-center gap-2">
           <div className="h-4 w-4 rounded-sm bg-white" aria-hidden="true" />

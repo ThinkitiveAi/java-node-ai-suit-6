@@ -62,12 +62,12 @@ export default function AppointmentListPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F3F3F3]">
+    <div className="min-h-screen bg-primary-50">
       <Navbar active="Scheduling" />
       <div className="mx-auto mt-2 flex gap-2 rounded bg-white px-4 py-4 shadow" style={{ width: '1416px', maxWidth: 'calc(100% - 24px)' }}>
         <div className="w-full">
           <div className="mb-4 flex items-center justify-between">
-            <div className="rounded bg-[#F8F8F8] px-2 py-1 text-xs text-gray-700">Appointments</div>
+            <div className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">Appointments</div>
             <div className="flex items-center gap-3">
               <div className="hidden items-center gap-2 sm:flex">
                 <Select
@@ -106,7 +106,7 @@ export default function AppointmentListPage() {
                 <TR key={a.id}>
                   <TD className="text-gray-600">{a.dateTime}</TD>
                   <TD className="text-gray-600">{a.type}</TD>
-                  <TD className="font-medium text-[#233853]">{a.patient.name}</TD>
+                  <TD className="font-medium text-primary-700">{a.patient.name}</TD>
                   <TD className="text-gray-600">{a.patient.dob}</TD>
                   <TD className="text-gray-600">{a.patient.phone}</TD>
                   <TD className="text-gray-700">{a.provider}</TD>

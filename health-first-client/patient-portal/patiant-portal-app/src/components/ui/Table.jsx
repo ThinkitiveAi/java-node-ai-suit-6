@@ -12,7 +12,7 @@ export function Table({ children, className = '' }) {
 
 export function THead({ children }) {
   return (
-    <thead className="bg-[#E7E7E7] text-gray-700">
+    <thead className="bg-gray-100 text-gray-700">
       {children}
     </thead>
   );
